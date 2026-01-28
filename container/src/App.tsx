@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+ import { FlagContainer } from "/src/components/FlagContainer";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+
+  const items = [
+    { id: 1, flag: "", name: "Empty"},
+    { id: 2, flag: "", name: "Empty"},
+    { id: 3, flag: "", name: "Empty"},
+    { id: 4, flag: "", name: "Empty"},
+    { id: 5, flag: "", name: "Empty"},
+    { id: 6, flag: "", name: "Empty"},
+    { id: 7, flag: "", name: "Empty"},
+    { id: 8, flag: "", name: "Empty"},
+    { id: 9, flag: "", name: "Empty"},
+    { id: 10, flag: "", name: "Empty"},
+    { id: 11, flag: "", name: "Empty"},
+    { id: 12, flag: "", name: "Empty"},
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  <div className="min-h-screen w-full bg-gray-950 p-8">
+      <div className="max-w-7xl mx-auto bg-gray-900 rounded-2xl shadow-2xl p-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          {items.map((item) => (
+          <FlagContainer 
+          key={item.id}
+          flag={item.flag}
+          countryName={item.name}
+          />
+          ))}
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
